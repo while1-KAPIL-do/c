@@ -1,0 +1,100 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+
+#define cleardevice(); //       //cleardevice();
+int main()
+{
+int adp=0 ,xy,i,j=1,B,H;
+
+int d=2;     // d = Delay
+int x1=100,y1=100;
+int x2=150,y2=100;
+initgraph(&adp,&xy,"..//BGI");
+
+//******** Input *****
+printf("Enter Breath : ");
+scanf("%d",&B);
+printf("Enter Hight : ");
+scanf("%d",&H);
+cleardevice();
+
+//************* R ****************
+for(i=0;i<=B;i++)
+ { cleardevice();
+   x1=x1+1;
+   x2=x2+1;
+   line(x1,y1,x2,y2);
+   delay(d);
+ }
+//*********** turn R-D **********
+for(i=x1;x1!=x2;i++)
+{ j++;
+  cleardevice();
+  x1=x1+1;
+  line(x1,y1,x2,y2);
+  line(x2,y2,x2,y2+j);
+  delay(d);
+}
+y2=y2+50;
+
+
+//************* D ***************
+for(i=0;i<=H;i++)
+ {  cleardevice();
+   y2=y2+1;
+   y1=y1+1;
+   line(x1,y1,x2,y2);
+   delay(d);
+ }
+//********* turn D-L ************
+j=1;
+for(i=y1;y1!=y2;i--)
+{ j++;
+  cleardevice();
+  y1=y1+1;
+  line(x1,y1,x2,y2);
+  line(x2,y2,x2-j,y2);
+  delay(d);
+}
+x2=x2-50;
+
+
+//************* L ****************
+for(i=0;i<=B;i++)
+ { cleardevice();
+   x1=x1-1;
+   x2=x2-1;
+   line(x1,y1,x2,y2);
+   delay(d);
+ }
+
+
+//********* turn L-U ************
+j=1;
+for(i=x1;x1!=x2;i--)
+{ j++;
+  cleardevice();
+  x1=x1-1;
+  line(x1,y1,x2,y2);
+  line(x2,y2,x2,y2-j);
+  delay(d);
+}
+y2=y2-50;
+
+
+//************* U ****************
+for(i=0;i<=H;i++)
+ { cleardevice();
+   y1=y1-1;
+   y2=y2-1;
+   line(x1,y1,x2,y2);
+   delay(d);
+ }
+
+
+
+ getch();
+
+return(0);
+}
